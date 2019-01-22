@@ -1,0 +1,107 @@
+﻿@model PagedList.IPagedList<SIG_Luziania_Web.Areas.Administrador.ViewModels.SegurancaViewModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Segurança";
+}
+
+<h2>Segurança</h2>
+
+@using (Html.BeginForm("Index", "Seguranca", FormMethod.Get))
+{
+    <p>
+        <div class="input-group">
+            <span class="input-group">
+                @Html.TextBox("filtro", ViewBag.Filtro as string, new { @class = "form-control", placeholder = "Pesquisar..." })
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary index" type="button"><i class="glyphicon glyphicon-refresh"></i></button>
+                </span>
+            </span>
+        </div>
+    </p>
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Tipo de Segurança
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Endereço
+            </th>
+            <th>
+                Bairro
+            </th>
+            <th>
+                Cep
+            </th>
+            <th>
+                Telefone
+            </th>
+            <th>
+                Latitude
+            </th>
+            <th>
+                Longitude
+            </th>
+            <th>
+                <button class="btn btn-success adicionar"><i class="glyphicon glyphicon-plus"></i></button>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoSeguranca.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Latitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Longitude)
+                </td>
+                <td>
+                    <div class="btn-group-vertical">
+                        <button class="btn btn-warning editar" data-id="@item.SegurancaId"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button class="btn btn-danger excluir" data-id="@item.SegurancaId"><i class="glyphicon glyphicon-trash"></i></button>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+@Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina, filtroAtual = ViewBag.Filtro }))
+
+<div class="modal fade" id="modal"></div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/geolocation")
+
+    <script>
+        setModal("seguranca");
+    </script>
+}

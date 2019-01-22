@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<SIG_Luziania_Web.Areas.Administrador.ViewModels.PerfilViewModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<h2>Perfil</h2>
+
+@using (Html.BeginForm("Index", "Perfil", FormMethod.Get))
+{
+    <p>
+        <div class="input-group">
+            <span class="input-group">
+                @Html.TextBox("filtro", ViewBag.Filtro as string, new { @class = "form-control", placeholder = "Pesquisar..." })
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary index" type="button"><i class="glyphicon glyphicon-refresh"></i></button>
+                </span>
+            </span>
+        </div>
+    </p>
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                <span style="margin-left: 20px">
+                    <button class="btn btn-success adicionar"><i class="glyphicon glyphicon-plus"></i></button>
+                </span>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-warning editar" data-id="@item.PerfilId"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button class="btn btn-danger excluir" data-id="@item.PerfilId"><i class="glyphicon glyphicon-trash"></i></button>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+@Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina, filtroAtual = ViewBag.Filtro }))
+
+<div class="modal fade" id="modal"></div>
+
+@section Scripts{
+    <script>
+        setModal("perfil");
+    </script>
+}

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "IDEB";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<h2>IDEB</h2>
+
+<p>
+    O Índice de Desenvolvimento da Educação Básica (IDEB) é o principal indicador da qualidade da educação no Brasil.
+    O IDEB é calculado com base no aprendizado dos alunos em português e matemática (Prova Brasil) e no fluxo escolar (taxa de aprovação).
+</p>
+
+<hr />
+<div id="graphicIdebInicial" style="height: 550px"></div>
+<hr />
+<div id="graphicIdebFinal" style="height: 550px"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/highcharts")
+    @Scripts.Render("~/bundles/highcharts-ideb")
+}

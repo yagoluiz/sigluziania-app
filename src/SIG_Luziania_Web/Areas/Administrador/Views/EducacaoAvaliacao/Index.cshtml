@@ -1,0 +1,86 @@
+﻿@model  IEnumerable<SIG_Luziania_Web.Areas.Administrador.ViewModels.EducacaoAvaliacaoViewModel>
+@using SIG_Luziania_Web.Models;
+
+@{
+    ViewBag.Title = "Vincular Avaliação";
+    SigLuzianiaContexto db = new SigLuzianiaContexto();
+}
+
+<h2>Vincular Avaliação</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <div class="input-group">
+            <span class="input-group">
+                @Html.DropDownList("Educacao", null, "Selecione...", htmlAttributes: new { @class = "form-control", style = "max-width: 100%" })
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+            </span>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger bg-danger" })
+        </div>
+    </p>
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Avaliação
+            </th>
+            <th>
+                Nota
+            </th>
+            <th>
+                Ano
+            </th>
+            <th>
+                <span style="margin-left: 20px">
+                    <button class="btn btn-success adicionar"><i class="glyphicon glyphicon-plus"></i></button>
+                </span>
+            </th>
+        </tr>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                var instituicoes = db.EducacaoAvaliacao.Where(x => x.EducacaoId == item.EducacaoId)
+                                    .OrderBy(x => new { x.EducacaoAvaliacaoId, x.Avaliacao.Nome, x.Ano }).ToList();
+
+                foreach (var instituicao in instituicoes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => instituicao.Avaliacao.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => instituicao.Nota)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => instituicao.Ano)
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-warning editar" data-id="@instituicao.EducacaoAvaliacaoId"><i class="glyphicon glyphicon-edit"></i></button>
+                                <button class="btn btn-danger excluir" data-id="@instituicao.EducacaoAvaliacaoId"><i class="glyphicon glyphicon-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+                break;
+            }
+        }
+
+    </table>
+</div>
+
+<div class="modal fade" id="modal"></div>
+
+@section Scripts{
+    <script>
+        setModal("educacao-vinculacao");
+    </script>
+}

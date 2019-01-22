@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08061F6E-A71F-4ED1-850F-DDD0DB225921}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIG_Luziania_Web</RootNamespace>
+    <AssemblyName>SIG_Luziania_Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.2.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql.EntityFramework, Version=2.2.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.EntityFramework.2.2.5\lib\net45\Npgsql.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Administrador\Controllers\AvaliacaoController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\EducacaoAvaliacaoController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\EducacaoController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\EspecialidadeController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\LazerController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\PerfilController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\SaudeController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\SaudeEspecialidadeController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\SegurancaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\TipoLazerController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\TipoSaudeController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\TipoSegurancaController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\AvaliacaoViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\EducacaoAvaliacaoViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\EducacaoViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\EspecialidadeViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\LazerViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\PerfilViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\SaudeEspecialidadeViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\SaudeViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\SegurancaViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\TipoLazerViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\TipoSaudeViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\TipoSegurancaViewModel.cs" />
+    <Compile Include="Areas\Administrador\ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="Controllers\AutenticacaoController.cs" />
+    <Compile Include="Controllers\Api\GraficoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\EducacaoController.cs" />
+    <Compile Include="Controllers\LazerController.cs" />
+    <Compile Include="Controllers\SaudeController.cs" />
+    <Compile Include="Controllers\SegurancaController.cs" />
+    <Compile Include="Controllers\Api\MapaController.cs" />
+    <Compile Include="Enum\Avaliacao.cs" />
+    <Compile Include="Enum\DependenciaAdministrativa.cs" />
+    <Compile Include="Enum\Zona.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Criptografia.cs" />
+    <Compile Include="Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Mappers\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Mappers\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Models\Avaliacao.cs" />
+    <Compile Include="Models\Cidade.cs" />
+    <Compile Include="Models\Educacao.cs" />
+    <Compile Include="Models\EducacaoAvaliacao.cs" />
+    <Compile Include="Models\Especialidade.cs" />
+    <Compile Include="Models\Lazer.cs" />
+    <Compile Include="Models\Perfil.cs" />
+    <Compile Include="Models\Saude.cs" />
+    <Compile Include="Models\SaudeEspecialidade.cs" />
+    <Compile Include="Models\Seguranca.cs" />
+    <Compile Include="Models\SigLuzianiaContexto.cs" />
+    <Compile Include="Models\TipoLazer.cs" />
+    <Compile Include="Models\TipoSaude.cs" />
+    <Compile Include="Models\TipoSeguranca.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\GraficoAvaliacaoViewModel.cs" />
+    <Compile Include="ViewModels\MapaEducacaoViewModel.cs" />
+    <Compile Include="ViewModels\EducacaoViewModel.cs" />
+    <Compile Include="ViewModels\EspecialidadeViewModel.cs" />
+    <Compile Include="ViewModels\LazerViewModel.cs" />
+    <Compile Include="ViewModels\SaudeViewModel.cs" />
+    <Compile Include="ViewModels\SegurancaViewModel.cs" />
+    <Compile Include="ViewModels\MapaLazerViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MapaSaudeViewModel.cs" />
+    <Compile Include="ViewModels\MapaSegurancaViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\leaflet-search.min.css" />
+    <Content Include="Content\leaflet-search.src.css" />
+    <Content Include="Content\leaflet.css" />
+    <Content Include="Content\leaflet.groupedlayercontrol.css" />
+    <Content Include="Content\leaflet.vector-markers.css" />
+    <Content Include="Content\pagedlist.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\site.css" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\layers-2x.png" />
+    <Content Include="Images\layers.png" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\logo-sig-luziania.jpg" />
+    <Content Include="Images\logo-sig-luziania.png" />
+    <Content Include="Images\marker-icon-2x.png" />
+    <Content Include="Images\marker-icon.png" />
+    <Content Include="Images\marker-shadow.png" />
+    <Content Include="Images\search-icon-mobile.png" />
+    <Content Include="Images\search-icon.png" />
+    <Content Include="Images\shadow%402x.png" />
+    <Content Include="Images\shadow.png" />
+    <Content Include="Areas\Administrador\Views\web.config" />
+    <Content Include="Areas\Administrador\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrador\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoLazer\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Lazer\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Lazer\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoLazer\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoLazer\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoLazer\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Lazer\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Lazer\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSeguranca\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSeguranca\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSeguranca\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSeguranca\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Seguranca\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Seguranca\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Seguranca\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Seguranca\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSaude\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSaude\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSaude\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\TipoSaude\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Saude\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Saude\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Saude\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Saude\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Educacao\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Educacao\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Educacao\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Educacao\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Avaliacao\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Avaliacao\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Avaliacao\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Avaliacao\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\EducacaoAvaliacao\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\EducacaoAvaliacao\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\EducacaoAvaliacao\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\EducacaoAvaliacao\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Especialidade\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Especialidade\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Especialidade\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Especialidade\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\SaudeEspecialidade\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\SaudeEspecialidade\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\SaudeEspecialidade\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\SaudeEspecialidade\Excluir.cshtml" />
+    <Content Include="Areas\Administrador\Views\Perfil\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Perfil\Adicionar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Perfil\Editar.cshtml" />
+    <Content Include="Areas\Administrador\Views\Perfil\Excluir.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\leaflet.vector-markers.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Contents\geolocation.js" />
+    <Content Include="Scripts\Highcharts\exporting.js" />
+    <Content Include="Scripts\Highcharts\exporting.src.js" />
+    <Content Include="Scripts\Highcharts\highcharts-grafico-enem.js" />
+    <Content Include="Scripts\Highcharts\highcharts-grafico-ideb.js" />
+    <Content Include="Scripts\Highcharts\highcharts.js" />
+    <Content Include="Scripts\Highcharts\highcharts.src.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Leaflet\leaflet-mapa.js" />
+    <Content Include="Scripts\Leaflet\leaflet-search.min.js" />
+    <Content Include="Scripts\Leaflet\leaflet-search.src.js" />
+    <Content Include="Scripts\Leaflet\leaflet-src.js" />
+    <Content Include="Scripts\Leaflet\leaflet.groupedlayercontrol.js" />
+    <Content Include="Scripts\Leaflet\leaflet.js" />
+    <Content Include="Scripts\Leaflet\leaflet.vector-markers.js" />
+    <Content Include="Scripts\Leaflet\leaflet.vector-markers.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Contents\modal.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenu.cshtml" />
+    <Content Include="Views\Educacao\Ideb.cshtml" />
+    <Content Include="Views\Educacao\Enem.cshtml" />
+    <Content Include="Views\Educacao\Instituicoes.cshtml" />
+    <Content Include="Views\Lazer\Localidades.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Saude\Localidades.cshtml" />
+    <Content Include="Views\Saude\Especialidades.cshtml" />
+    <Content Include="Views\Seguranca\Localidades.cshtml" />
+    <Content Include="Views\Autenticacao\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64767</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/SIG_Luziania_Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

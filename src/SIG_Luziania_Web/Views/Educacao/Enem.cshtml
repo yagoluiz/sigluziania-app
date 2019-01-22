@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "ENEM";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<h2>ENEM</h2>
+
+<p>
+    O Exame Nacional do Ensino Médio (ENEM) tem como objetivo avaliar o desempenho do estudante ao fim da escolaridadebásica.
+    O ENEM é utilizado como critério de seleção para os estudantes que pretendem estudar em instituições de ensino pública (SISU), instituições particulares (ProUni) ou para retirada do certificado de conclusão do ensino médio.
+</p>
+
+<hr />
+<div id="graphicEnem" style="height: 550px"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/highcharts")
+    @Scripts.Render("~/bundles/highcharts-enem")
+}

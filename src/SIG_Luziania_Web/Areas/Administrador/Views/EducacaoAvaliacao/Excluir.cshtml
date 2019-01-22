@@ -1,0 +1,64 @@
+﻿@model SIG_Luziania_Web.Areas.Administrador.ViewModels.EducacaoAvaliacaoViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Excluir Vínculo";
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (Html.BeginForm())
+        {
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Excluir Vínculo</h3>
+            </div>
+
+            @Html.AntiForgeryToken()
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Educacao.Nome, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.Educacao.Nome, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Avaliacao.Nome, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.Avaliacao.Nome, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nota, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.Nota, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Ano, htmlAttributes: new { @class = "control-label col-sm-3" })
+                        <div class="col-sm-9">
+                            @Html.EditorFor(model => model.Ano, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span>Deseja excluir este vínculo?</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="form-actions no-color">
+                    <input type="submit" value="Excluir" class="btn btn-danger" />
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

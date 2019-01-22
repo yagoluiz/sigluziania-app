@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SIG_Luziania_Web.ViewModels.EspecialidadeViewModel>
+@using SIG_Luziania_Web.Models;
+
+@{
+    ViewBag.Title = "Especialidades";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+    SigLuzianiaContexto db = new SigLuzianiaContexto();
+}
+
+<h2>Especialidades</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <div class="input-group">
+            <span class="input-group">
+                @Html.DropDownList("Saude", null, "Selecione...", htmlAttributes: new { @class = "form-control", style = "max-width: 100%" })
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+            </span>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger bg-danger" })
+        </div>
+    </p>
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Especialidade
+            </th>
+            <th>
+                Descrição
+            </th>
+        </tr>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                var especialidades = db.SaudeEspecialidade.Where(x => x.SaudeId == item.SaudeId)
+                         .Select(x => new { x.Especialidade.Nome, x.Especialidade.Descricao }).ToList();
+
+                foreach (var especialidade in especialidades)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => especialidade.Nome)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => especialidade.Descricao)
+                        </td>
+                    </tr>
+                }
+
+                break;
+            }
+        }
+    </table>
+</div>
