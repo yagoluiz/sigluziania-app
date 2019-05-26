@@ -2,11 +2,15 @@
 
 Sistema de Informação Geográfico (SIG) da cidade de Luziânia - GO, implementado no ano de 2015 para Trabalho de Conclusão de Curso (TCC).
 
+## Página inicial do sistema
+
+![](img/pagina_inicial.png)
+
 ## Trabalho de Conclusão de Curso (TCC)
 
 Consulte o [repositório](https://github.com/yagoluiz/ifg-tcc) do trabalho para mais detalhes do projeto.
 
-## Tecnologias/padrões utilizadas
+## Tecnologias/padrões utilizados
 
 * ASP.NET MVC 5
 * Entity Framework
